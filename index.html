@@ -47,4 +47,345 @@ function updateLinks(){const game=input.value.trim();if(!game)return;const q=enc
 };document.querySelectorAll('.store').forEach(card=>{const name=card.dataset.store;const a=card.querySelector('a');if(urls[name])a.href=urls[name];else if(name==='IsThereAnyDeal')a.href='https://isthereanydeal.com/';a.target='_blank';a.rel='noopener'});status.textContent='“'+game+'” için mağaza aramaları hazır. Sonuçları açıp fiyatları karşılaştırabilirsin.'}
 form.addEventListener('submit',e=>{e.preventDefault();updateLinks()});input.addEventListener('change',updateLinks);updateLinks();
 </script>
+  <!-- Ucuz GPT -->
+<style>
+#ucuzgpt-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#ucuzgpt-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 350px;
+  background: #111827;
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  z-index: 9999;
+  box-shadow: 0 0 20px #2563eb;
+  font-family: Arial, sans-serif;
+}
+#ucuzgpt-msg {
+  height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#ucuzgpt-input {
+  width: 70%;
+  padding: 8px;
+}
+</style>
+
+<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
+  🤖 Ucuz GPT
+</button>
+
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
+  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
+  <button onclick="ucuzgptSend()">Gönder</button>
+</div>
+
+<script>
+function ucuzgptSend() {
+  const input = document.getElementById('ucuzgpt-input');
+  const msg = document.getElementById('ucuzgpt-msg');
+  const text = input.value.trim();
+  if (!text) return;
+
+  msg.innerHTML += '<p><b>Sen:</b> ' +
+    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
+
+  input.value = '';
+  msg.scrollTop = msg.scrollHeight;
+}
+</script><!-- Ucuz GPT -->
+<style>
+#ucuzgpt-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#ucuzgpt-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 350px;
+  background: #111827;
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  z-index: 9999;
+  box-shadow: 0 0 20px #2563eb;
+  font-family: Arial, sans-serif;
+}
+#ucuzgpt-msg {
+  height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#ucuzgpt-input {
+  width: 70%;
+  padding: 8px;
+}
+</style>
+
+<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
+  🤖 Ucuz GPT
+</button>
+
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
+  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
+  <button onclick="ucuzgptSend()">Gönder</button>
+</div>
+
+<script>
+function ucuzgptSend() {
+  const input = document.getElementById('ucuzgpt-input');
+  const msg = document.getElementById('ucuzgpt-msg');
+  const text = input.value.trim();
+  if (!text) return;
+
+  msg.innerHTML += '<p><b>Sen:</b> ' +
+    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
+
+  input.value = '';
+  msg.scrollTop = msg.scrollHeight;
+}
+</script><!-- Ucuz GPT -->
+<style>
+#ucuzgpt-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#ucuzgpt-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 350px;
+  background: #111827;
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  z-index: 9999;
+  box-shadow: 0 0 20px #2563eb;
+  font-family: Arial, sans-serif;
+}
+#ucuzgpt-msg {
+  height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#ucuzgpt-input {
+  width: 70%;
+  padding: 8px;
+}
+</style>
+
+<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
+  🤖 Ucuz GPT
+</button>
+
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
+  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
+  <button onclick="ucuzgptSend()">Gönder</button>
+</div>
+
+<script>
+function ucuzgptSend() {
+  const input = document.getElementById('ucuzgpt-input');
+  const msg = document.getElementById('ucuzgpt-msg');
+  const text = input.value.trim();
+  if (!text) return;
+
+  msg.innerHTML += '<p><b>Sen:</b> ' +
+    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
+
+  input.value = '';
+  msg.scrollTop = msg.scrollHeight;
+}
+</script><!-- Ucuz GPT -->
+<style>
+#ucuzgpt-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#ucuzgpt-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 350px;
+  background: #111827;
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  z-index: 9999;
+  box-shadow: 0 0 20px #2563eb;
+  font-family: Arial, sans-serif;
+}
+#ucuzgpt-msg {
+  height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#ucuzgpt-input {
+  width: 70%;
+  padding: 8px;
+}
+</style>
+
+<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
+  🤖 Ucuz GPT
+</button>
+
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
+  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
+  <button onclick="ucuzgptSend()">Gönder</button>
+</div>
+
+<script>
+function ucuzgptSend() {
+  const input = document.getElementById('ucuzgpt-input');
+  const msg = document.getElementById('ucuzgpt-msg');
+  const text = input.value.trim();
+  if (!text) return;
+
+  msg.innerHTML += '<p><b>Sen:</b> ' +
+    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
+
+  input.value = '';
+  msg.scrollTop = msg.scrollHeight;
+}
+</script><!-- Ucuz GPT -->
+<style>
+#ucuzgpt-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#ucuzgpt-box {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 350px;
+  background: #111827;
+  color: white;
+  border-radius: 16px;
+  padding: 15px;
+  z-index: 9999;
+  box-shadow: 0 0 20px #2563eb;
+  font-family: Arial, sans-serif;
+}
+#ucuzgpt-msg {
+  height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+#ucuzgpt-input {
+  width: 70%;
+  padding: 8px;
+}
+</style>
+
+<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
+  🤖 Ucuz GPT
+</button>
+
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
+  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
+  <button onclick="ucuzgptSend()">Gönder</button>
+</div>
+
+<script>
+function ucuzgptSend() {
+  const input = document.getElementById('ucuzgpt-input');
+  const msg = document.getElementById('ucuzgpt-msg');
+  const text = input.value.trim();
+  if (!text) return;
+
+  msg.innerHTML += '<p><b>Sen:</b> ' +
+    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
+    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
+
+  input.value = '';
+  msg.scrollTop = msg.scrollHeight;
+}
+</script>
 </body></html>
