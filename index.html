@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -5,730 +6,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OyunUcuza — Oyun Fiyat Karşılaştırma</title>
 <style>
-:root{--bg:#090d18;--panel:#111a2b;--panel2:#192640;--text:#f4f7ff;--muted:#a9b6cf;--blue:#4bd0ff;--purple:#9676ff;--line:#2a3955;--green:#60e6ac}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#24376a 0%,var(--bg) 55%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
-header,main,footer{max-width:1080px;margin:auto;padding-left:20px;padding-right:20px}header{padding-top:22px;padding-bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{font-size:1.4rem;font-weight:950;letter-spacing:-.7px}.logo span{color:var(--blue)}.pill{border:1px solid #355277;color:#b7eaff;border-radius:99px;padding:7px 11px;font-size:.8rem}
-.hero{margin-top:15px;padding:clamp(25px,6vw,55px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(125deg,#18294a,#17162d);position:relative;overflow:hidden}.eyebrow{color:var(--blue);font-size:.78rem;font-weight:900;letter-spacing:2px}.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.03;letter-spacing:-1.5px;margin:13px 0}.hero h1 span{color:var(--blue)}.hero p{color:var(--muted);max-width:620px;line-height:1.7}
-.searchbar{display:flex;gap:10px;max-width:690px;margin-top:24px}.searchbar input{flex:1;min-width:0;background:#090f20;color:white;border:1px solid #3a4c70;border-radius:12px;padding:15px 16px;font-size:1rem;outline:none}.searchbar input:focus{border-color:var(--blue)}button,.btn{cursor:pointer;border:0;border-radius:11px;padding:13px 17px;font-weight:850;background:linear-gradient(100deg,var(--blue),#8d8aff);color:#07111f;text-decoration:none;display:inline-block}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}.sectionhead h2{margin:0;font-size:1.35rem}.muted{color:var(--muted);font-size:.9rem;line-height:1.6}
-#status{margin:18px 0 0;color:#b7eaff;min-height:24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.store{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:10px;min-width:0}.storetop{display:flex;align-items:center;gap:12px}.storeicon{width:45px;height:45px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:1.45rem;flex-shrink:0}.store h3{margin:0;font-size:1rem}.store p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}.store .btn{margin-top:auto;text-align:center;padding:11px}.note{margin-top:22px;padding:16px 18px;background:#171f31;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:.88rem;line-height:1.65}.note strong{color:var(--text)}footer{text-align:center;padding-top:30px;padding-bottom:30px;color:var(--muted);font-size:.82rem}
+:root{--bg:#090d18;--panel:#111a2b;--panel2:#192640;--text:#f4f7ff;--muted:#a9b6cf;--blue:#4bd0ff;--line:#2a3955}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -20%,#24376a 0%,var(--bg) 55%);color:var(--text);font-family:system-ui,sans-serif;min-height:100vh}
+header,main,footer{max-width:1080px;margin:auto;padding-left:20px;padding-right:20px}
+header{padding-top:22px;padding-bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-size:1.4rem;font-weight:950}.logo span{color:var(--blue)}
+.pill{border:1px solid #355277;color:#b7eaff;border-radius:99px;padding:7px 11px;font-size:.8rem}
+.hero{margin-top:15px;padding:clamp(25px,6vw,55px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(125deg,#18294a,#17162d)}
+.eyebrow{color:var(--blue);font-size:.78rem;font-weight:900;letter-spacing:2px}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.03;margin:13px 0}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--muted);max-width:620px;line-height:1.7}
+.searchbar{display:flex;gap:10px;max-width:690px;margin-top:24px}
+.searchbar input{flex:1;min-width:0;background:#090f20;color:white;border:1px solid #3a4c70;border-radius:12px;padding:15px;font-size:1rem}
+button,.btn{cursor:pointer;border:0;border-radius:11px;padding:13px 17px;font-weight:850;background:linear-gradient(100deg,var(--blue),#8d8aff);color:#07111f;text-decoration:none;display:inline-block}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}
+.sectionhead h2{margin:0;font-size:1.35rem}
+.muted{color:var(--muted);font-size:.9rem;line-height:1.6}
+#status{margin:18px 0 0;color:#b7eaff;min-height:24px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.store{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.storetop{display:flex;align-items:center;gap:12px}
+.storeicon{width:45px;height:45px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:1.45rem;flex-shrink:0}
+.store h3{margin:0;font-size:1rem}
+.store p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.5}
+.store .btn{margin-top:auto;text-align:center;padding:11px}
+.note{margin-top:22px;padding:16px 18px;background:#171f31;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:.88rem;line-height:1.65}
+.note strong{color:var(--text)}
+footer{text-align:center;padding-top:30px;padding-bottom:100px;color:var(--muted);font-size:.82rem}
 @media(max-width:600px){header{align-items:flex-start;flex-direction:column}.searchbar{flex-direction:column}.searchbar button{width:100%}.grid{grid-template-columns:1fr}.sectionhead{align-items:flex-start;flex-direction:column}}
+/* Ucuz GPT */
+#ucuzgpt-btn{position:fixed;bottom:18px;right:18px;z-index:9999;border-radius:30px;background:#2563eb;color:white;padding:14px 20px}
+#ucuzgpt-box{display:none;position:fixed;bottom:78px;right:12px;width:min(350px,calc(100vw - 24px));height:430px;background:#111827;color:white;border:1px solid #334155;border-radius:16px;padding:14px;z-index:9999;box-shadow:0 0 20px #2563eb;font-family:Arial,sans-serif}
+#ucuzgpt-msg{height:325px;overflow-y:auto;font-size:14px;overflow-wrap:anywhere}
+#ucuzgpt-msg p{white-space:pre-wrap;line-height:1.5}
+#ucuzgpt-input{width:68%;min-width:0;padding:10px;border-radius:8px;border:1px solid #475569;background:#0f172a;color:white}
+#ucuzgpt-send{padding:10px}
 </style>
 </head>
 <body>
-<header><div class="logo">OYUN<span>UCUZA</span> 🎮</div><div class="pill">Oyun fiyatı bulucu</div></header>
+<header>
+  <div class="logo">OYUN<span>UCUZA</span> 🎮</div>
+  <div class="pill">Oyun fiyatı bulucu</div>
+</header>
+
 <main>
 <section class="hero">
-<div class="eyebrow">SATIN ALMADAN ÖNCE KARŞILAŞTIR</div>
-<h1>Aradığın oyunu<br><span>daha ucuza bul.</span></h1>
-<p>Oyun adını yaz; mağazalarda ve fiyat karşılaştırma sitelerinde arama bağlantılarını tek yerde topla. Satın almadan önce sürümü, bölgeyi ve satıcının güvenilirliğini kontrol et.</p>
-<form class="searchbar" id="searchForm"><input id="gameName" value="Minecraft" aria-label="Oyun adı" placeholder="Örn. Minecraft, GTA V, Elden Ring" required><button type="submit">Fiyatları ara ↗</button></form>
-<div id="status" role="status">Minecraft için arama bağlantıları hazır.</div>
+  <div class="eyebrow">SATIN ALMADAN ÖNCE KARŞILAŞTIR</div>
+  <h1>Aradığın oyunu<br><span>daha ucuza bul.</span></h1>
+  <p>Oyun adını yaz; mağazalarda ve fiyat karşılaştırma sitelerinde arama bağlantılarını tek yerde topla. Satın almadan önce sürümü, bölgeyi ve satıcının güvenilirliğini kontrol et.</p>
+  <form class="searchbar" id="searchForm">
+    <input id="gameName" value="Minecraft" aria-label="Oyun adı" placeholder="Örn. Minecraft, GTA V, Elden Ring" required>
+    <button type="submit">Fiyatları ara ↗</button>
+  </form>
+  <div id="status" role="status">Minecraft için arama bağlantıları hazır.</div>
 </section>
+
 <div class="sectionhead"><h2>🔎 Nerelerde arayalım?</h2><span class="muted">Bağlantılar yeni sekmede açılır</span></div>
 <section class="grid" id="stores">
-<article class="store" data-store="Google"><div class="storetop"><div class="storeicon">🌐</div><h3>Web genelinde fiyat ara</h3></div><p>Farklı mağazaların güncel ilanlarını arat. Fiyatı, sürümü ve satıcıyı karşılaştır.</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=Minecraft+oyun+fiyat%C4%B1">Fiyatları ara ↗</a></article>
-<article class="store" data-store="Akakçe"><div class="storetop"><div class="storeicon">📊</div><h3>Akakçe</h3></div><p>Türkiye'deki mağazalarda ürün fiyatlarını karşılaştırmayı dene.</p><a class="btn" target="_blank" rel="noopener" href="https://www.akakce.com/arama/?q=Minecraft">Akakçe'de ara ↗</a></article>
-<article class="store" data-store="Steam"><div class="storetop"><div class="storeicon">🕹️</div><h3>Steam</h3></div><p>Steam mağazasında oyunun sayfasını ve varsa indirimleri kontrol et.</p><a class="btn" target="_blank" rel="noopener" href="https://store.steampowered.com/search/?term=Minecraft">Steam'de ara ↗</a></article>
-<article class="store" data-store="Epic Games"><div class="storetop"><div class="storeicon">🎁</div><h3>Epic Games Store</h3></div><p>Resmî mağazada oyunu ara; fiyat ve kampanyalar değişebilir.</p><a class="btn" target="_blank" rel="noopener" href="https://store.epicgames.com/en-US/browse?q=Minecraft">Epic'te ara ↗</a></article>
-<article class="store" data-store="Xbox"><div class="storetop"><div class="storeicon">🟩</div><h3>Xbox / Microsoft Store</h3></div><p>PC ve konsol sürümlerini karıştırmamaya dikkat ederek resmî mağazayı kontrol et.</p><a class="btn" target="_blank" rel="noopener" href="https://www.xbox.com/tr-TR/search?q=Minecraft">Microsoft'ta ara ↗</a></article>
-<article class="store" data-store="IsThereAnyDeal"><div class="storetop"><div class="storeicon">💸</div><h3>IsThereAnyDeal</h3></div><p>Desteklenen PC mağazalarındaki fiyat geçmişi ve fırsatları karşılaştırmaya yarar.</p><a class="btn" target="_blank" rel="noopener" href="https://isthereanydeal.com/">Fırsatları kontrol et ↗</a></article>
+  <article class="store" data-store="Google"><div class="storetop"><div class="storeicon">🌐</div><h3>Web genelinde fiyat ara</h3></div><p>Farklı mağazaların güncel ilanlarını arat.</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=Minecraft+oyun+fiyat%C4%B1">Fiyatları ara ↗</a></article>
+  <article class="store" data-store="Akakçe"><div class="storetop"><div class="storeicon">📊</div><h3>Akakçe</h3></div><p>Türkiye'deki mağazalarda ürün fiyatlarını karşılaştır.</p><a class="btn" target="_blank" rel="noopener" href="https://www.akakce.com/arama/?q=Minecraft">Akakçe'de ara ↗</a></article>
+  <article class="store" data-store="Steam"><div class="storetop"><div class="storeicon">🕹️</div><h3>Steam</h3></div><p>Oyunun sayfasını ve indirimleri kontrol et.</p><a class="btn" target="_blank" rel="noopener" href="https://store.steampowered.com/search/?term=Minecraft">Steam'de ara ↗</a></article>
+  <article class="store" data-store="Epic Games"><div class="storetop"><div class="storeicon">🎁</div><h3>Epic Games Store</h3></div><p>Resmî mağazada oyunu ve kampanyaları ara.</p><a class="btn" target="_blank" rel="noopener" href="https://store.epicgames.com/en-US/browse?q=Minecraft">Epic'te ara ↗</a></article>
+  <article class="store" data-store="Xbox"><div class="storetop"><div class="storeicon">🟩</div><h3>Xbox / Microsoft Store</h3></div><p>PC ve konsol sürümlerini kontrol et.</p><a class="btn" target="_blank" rel="noopener" href="https://www.xbox.com/tr-TR/search?q=Minecraft">Microsoft'ta ara ↗</a></article>
+  <article class="store" data-store="IsThereAnyDeal"><div class="storetop"><div class="storeicon">💸</div><h3>IsThereAnyDeal</h3></div><p>Desteklenen PC mağazalarındaki fırsatları karşılaştır.</p><a class="btn" target="_blank" rel="noopener" href="https://isthereanydeal.com/">Fırsatları kontrol et ↗</a></article>
 </section>
-<section class="note"><strong>Şeffaflık notu:</strong> Bu ücretsiz ilk sürüm mağazaların arama sayfalarını açar; sitelerin canlı fiyatlarını otomatik çekip en ucuz fiyatı kendi içinde doğrulamıyor. Fiyatları burada otomatik sıralamak için mağazaların izin verilen fiyat API'leri veya güvenilir bir fiyat-verisi kaynağı gerekir. Sahte hesaplar, paylaşımlı hesaplar ve kaynağı belirsiz oyun anahtarları yerine resmî mağazaları tercih et.</section>
+
+<section class="note"><strong>Şeffaflık notu:</strong> Bu site mağazaların arama sayfalarını açar; canlı fiyatları otomatik doğrulamaz. Satın almadan önce sürümü ve satıcının güvenilirliğini kontrol et.</section>
 </main>
+
 <footer>OyunUcuza · Bağımsız fiyat arama taslağı · Fiyatlar ve kampanyalar değişebilir.</footer>
+
+<button id="ucuzgpt-btn" type="button">🤖 Ucuz GPT</button>
+<div id="ucuzgpt-box">
+  <b>🤖 Ucuz GPT</b>
+  <button id="ucuzgpt-close" type="button" style="float:right;padding:5px 9px">✖</button>
+  <hr>
+  <div id="ucuzgpt-msg" aria-live="polite">Selam kral! 🎮 Ben Ucuz GPT. Bana oyunlar hakkında bir şey sor!</div>
+  <form id="ucuzgpt-form">
+    <input id="ucuzgpt-input" placeholder="Bir şey yaz..." autocomplete="off" required>
+    <button id="ucuzgpt-send" type="submit">Gönder</button>
+  </form>
+</div>
+
 <script>
-const form=document.getElementById('searchForm'), input=document.getElementById('gameName'), status=document.getElementById('status');
-function updateLinks(){const game=input.value.trim();if(!game)return;const q=encodeURIComponent(game);const urls={
-'Google':'https://www.google.com/search?q='+q+'+oyun+fiyat%C4%B1',
-'Akakçe':'https://www.akakce.com/arama/?q='+q,
-'Steam':'https://store.steampowered.com/search/?term='+q,
-'Epic Games':'https://store.epicgames.com/en-US/browse?q='+q,
-'Xbox':'https://www.xbox.com/tr-TR/search?q='+q
-};document.querySelectorAll('.store').forEach(card=>{const name=card.dataset.store;const a=card.querySelector('a');if(urls[name])a.href=urls[name];else if(name==='IsThereAnyDeal')a.href='https://isthereanydeal.com/';a.target='_blank';a.rel='noopener'});status.textContent='“'+game+'” için mağaza aramaları hazır. Sonuçları açıp fiyatları karşılaştırabilirsin.'}
-form.addEventListener('submit',e=>{e.preventDefault();updateLinks()});input.addEventListener('change',updateLinks);updateLinks();
-</script>}
-  msg.scrollTop = msg.scrollHeight;
+const searchForm = document.getElementById('searchForm');
+const gameInput = document.getElementById('gameName');
+const statusText = document.getElementById('status');
+
+function updateLinks() {
+  const game = gameInput.value.trim();
+  if (!game) return;
+  const q = encodeURIComponent(game);
+  const urls = {
+    'Google': 'https://www.google.com/search?q=' + q + '+oyun+fiyat%C4%B1',
+    'Akakçe': 'https://www.akakce.com/arama/?q=' + q,
+    'Steam': 'https://store.steampowered.com/search/?term=' + q,
+    'Epic Games': 'https://store.epicgames.com/en-US/browse?q=' + q,
+    'Xbox': 'https://www.xbox.com/tr-TR/search?q=' + q
+  };
+  document.querySelectorAll('.store').forEach(card => {
+    const link = card.querySelector('a');
+    const name = card.dataset.store;
+    if (urls[name]) link.href = urls[name];
+  });
+  statusText.textContent = '“' + game + '” için mağaza aramaları hazır.';
 }
+searchForm.addEventListener('submit', event => {
+  event.preventDefault();
+  updateLinks();
+});
+gameInput.addEventListener('change', updateLinks);
+updateLinks();
+
+const WORKER_URL = 'https://sweet-lab-bfb3.ozkandeno33.workers.dev';
+const chatBox = document.getElementById('ucuzgpt-box');
+const chatButton = document.getElementById('ucuzgpt-btn');
+const chatClose = document.getElementById('ucuzgpt-close');
+const chatForm = document.getElementById('ucuzgpt-form');
+const chatInput = document.getElementById('ucuzgpt-input');
+const chatMessages = document.getElementById('ucuzgpt-msg');
+const sendButton = document.getElementById('ucuzgpt-send');
+
+chatButton.addEventListener('click', () => {
+  chatBox.style.display = 'block';
+  chatInput.focus();
+});
+chatClose.addEventListener('click', () => {
+  chatBox.style.display = 'none';
+});
+
+function addMessage(label, text) {
+  const p = document.createElement('p');
+  const strong = document.createElement('b');
+  strong.textContent = label + ': ';
+  p.appendChild(strong);
+  p.appendChild(document.createTextNode(text));
+  chatMessages.appendChild(p);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  const message = chatInput.value.trim();
+  if (!message || sendButton.disabled) return;
+
+  addMessage('Sen', message);
+  chatInput.value = '';
+  sendButton.disabled = true;
+  sendButton.textContent = '...';
+  const waiting = document.createElement('p');
+  waiting.textContent = 'Ucuz GPT düşünüyor...';
+  chatMessages.appendChild(waiting);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message})
+    });
+
+    let data = {};
+    try { data = await response.json(); } catch (_) {}
+
+    if (!response.ok) {
+      throw new Error(data.error || ('Sunucu hatası: ' + response.status));
+    }
+    if (!data.reply) {
+      throw new Error(data.error || 'Sunucu yanıt vermedi.');
+    }
+    waiting.textContent = 'Ucuz GPT: ' + data.reply;
+  } catch (error) {
+    waiting.textContent = 'Ucuz GPT bağlantı hatası: ' + (error.message || 'Worker ayarlarını kontrol et.');
+  } finally {
+    sendButton.disabled = false;
+    sendButton.textContent = 'Gönder';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+});
 </script>
-</body></html>
-  <!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script>  <!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script><!-- Ucuz GPT -->
-<style>
-#ucuzgpt-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2563eb;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#ucuzgpt-box {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 350px;
-  background: #111827;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  z-index: 9999;
-  box-shadow: 0 0 20px #2563eb;
-  font-family: Arial, sans-serif;
-}
-#ucuzgpt-msg {
-  height: 250px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-#ucuzgpt-input {
-  width: 70%;
-  padding: 8px;
-}
-</style>
-
-<button id="ucuzgpt-btn" onclick="document.getElementById('ucuzgpt-box').style.display='block'">
-  🤖 Ucuz GPT
-</button>
-
-<div id="ucuzgpt-box">
-  <b>🤖 Ucuz GPT</b>
-  <button onclick="document.getElementById('ucuzgpt-box').style.display='none'" style="float:right">✖</button>
-  <hr>
-  <div id="ucuzgpt-msg">Selam kral! 🎮 Sana oyun önerebilirim.</div>
-  <input id="ucuzgpt-input" placeholder="Bir şey yaz...">
-  <button onclick="ucuzgptSend()">Gönder</button>
-</div>
-
-<script>
-function ucuzgptSend() {
-  const input = document.getElementById('ucuzgpt-input');
-  const msg = document.getElementById('ucuzgpt-msg');
-  const text = input.value.trim();
-  if (!text) return;
-
-  msg.innerHTML += '<p><b>Sen:</b> ' +
-    text.replace(/&/g, '&amp;').replace(/</g, '&lt;') +
-    '</p><p><b>Ucuz GPT:</b> Şimdilik deneme modundayım kral! 😎 Gerçek AI bağlantısını sonraki adımda ekleyeceğiz.</p>';
-
-  input.value = '';
-  msg.scrollTop = msg.scrollHeight;
-}
-</script>
+</body>
+</html>
